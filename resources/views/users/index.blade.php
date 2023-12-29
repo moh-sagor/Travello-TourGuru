@@ -5,7 +5,27 @@
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Manage all users
+                @php
+                    $superAdminCount = 0;
+                    $adminCount = 0;
+                    $userCount = 0;
+                @endphp
+
+                @foreach ($users as $user)
+                    @if ($user->role === 'admin')
+                        @php $adminCount++ @endphp
+                    @elseif ($user->role === 'superadmin')
+                        @php $superAdminCount++ @endphp
+                    @elseif ($user->role === 'user')
+                        @php $userCount++ @endphp
+                    @endif
+                @endforeach
+                <span class="btn btn-primary btn-sm">Total: {{ $superAdminCount + $adminCount + $userCount }}</span>
+                <span class="btn btn-danger btn-sm">Super Admins: {{ $superAdminCount }}</span>
+                <span class="btn btn-warning btn-sm">Admins: {{ $adminCount }}</span>
+                <span class="btn btn-info btn-sm">Users: {{ $userCount }}</span>
             </div>
+
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
@@ -48,40 +68,62 @@
                                 <td>{{ $user->role }}</td>
                                 <td>
                                     @if (auth()->user()->isSuperAdmin())
-                                        <form class="d-flex" method="POST" action="{{ route('users.update-role', $user) }}">
-                                            @csrf
-                                            <select name="role" id="role" class="form-select me-2">
-                                                <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>
-                                                    Admin</option>
-                                                <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>
-                                                    User</option>
-                                            </select>
-                                            <button class="btn btn-primary btn-sm" type="submit">Update</button>
-                                        </form>
+                                        @if ($user->role === 'superadmin')
+                                            <h6 class="text-center">Owner</h6>
+                                        @else
+                                            <form class="d-flex" id="updateRoleForm_{{ $user->id }}" method="POST"
+                                                action="{{ route('users.update-role', $user) }}">
+                                                @csrf
+                                                <select name="role" id="role" class="form-select me-2">
+                                                    <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>
+                                                        Admin
+                                                    </option>
+                                                    <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>
+                                                        User
+                                                    </option>
+                                                </select>
+                                                <button class="btn btn-danger btn-sm" type="button"
+                                                    onclick="showSweetAlert({{ $user->id }})">Update</button>
+                                            </form>
+                                        @endif
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $user->duration }}
+                                    @if (auth()->user()->isSuperAdmin())
+                                        @if ($user->role === 'superadmin')
+                                            <h6 class="text-center">Owner</h6>
+                                        @else
+                                            {{ $user->duration }}
+                                        @endif
+                                    @endif
                                 </td>
                                 <td>
                                     <div class="countdown" data-duration="{{ $user->duration }}"
                                         id="countdown_{{ $user->id }}"></div>
                                 </td>
                                 <td>
-                                    <form class="d-flex" method="POST"
-                                        action="{{ route('users.update-subscription', $user) }}">
-                                        @csrf
-                                        <select name="duration" id="duration_{{ $user->id }}" class="form-select me-2"
-                                            onchange="initializeCountdown(this.value, {{ $user->id }})">
-                                            @foreach ($subscriptionDurations as $duration)
-                                                <option value="{{ $duration }}"
-                                                    {{ $user->duration === $duration ? 'selected' : '' }}>
-                                                    {{ $duration }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        <button class="btn btn-primary btn-sm" type="submit">Update Duration</button>
-                                    </form>
+                                    @if (auth()->user()->isSuperAdmin())
+                                        @if ($user->role === 'superadmin')
+                                            <h6 class="text-center">Owner</h6>
+                                        @else
+                                            <form class="d-flex" id="updateDurationForm_{{ $user->id }}" method="POST"
+                                                action="{{ route('users.update-subscription', $user) }}">
+                                                @csrf
+                                                <select name="duration" id="duration_{{ $user->id }}"
+                                                    class="form-select me-2"
+                                                    onchange="initializeCountdown(this.value, {{ $user->id }})">
+                                                    @foreach ($subscriptionDurations as $duration)
+                                                        <option value="{{ $duration }}"
+                                                            {{ $user->duration === $duration ? 'selected' : '' }}>
+                                                            {{ $duration }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                <button class="btn btn-danger btn-sm" type="button"
+                                                    onclick="showSweetAlert2({{ $user->id }})">Update</button>
+                                            </form>
+                                        @endif
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -90,6 +132,9 @@
             </div>
         </div>
     </div>
+
+
+    {{-- countdown for subscription  --}}
     <script>
         function durationToMilliseconds(duration) {
             switch (duration) {
@@ -165,6 +210,46 @@
         function updateCountdownOnDurationChange(userId, newDuration) {
             var storedEndTime = localStorage.getItem('countdown_end_time_' + userId);
             initializeCountdown(newDuration, userId, storedEndTime);
+        }
+    </script>
+
+
+    {{-- Role Update sweetalert2  --}}
+    <script>
+        function showSweetAlert(userId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to update the role!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, update it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the form if the user clicks "Yes"
+                    document.getElementById('updateRoleForm_' + userId).submit();
+                }
+            });
+        }
+    </script>
+    {{-- Duration Update sweetalert2  --}}
+    <script>
+        function showSweetAlert2(userId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to update the duration!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, update it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the form if the user clicks "Yes"
+                    document.getElementById('updateDurationForm_' + userId).submit();
+                }
+            });
         }
     </script>
 @endsection
