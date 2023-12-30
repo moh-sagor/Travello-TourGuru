@@ -62,7 +62,7 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $sn++ }}</td>
-                                <td>{{ $user->username }}</td>
+                                <td><a href="{{ route('users.details', $user->username) }}">{{ $user->username }}</a></td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role }}</td>

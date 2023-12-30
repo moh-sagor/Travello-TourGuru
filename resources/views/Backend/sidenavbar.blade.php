@@ -11,10 +11,19 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Manage User
                     </a>
+                    <a class="nav-link" href="{{ route('sitemaps.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Site Maps
+                    </a>
                 @elseif (Auth::user()->role == 'admin')
                     <a class="nav-link" href="/">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Admin
+                    </a>
+
+                    <a class="nav-link" href="{{ route('sitemaps.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Site Maps
                     </a>
                 @else
                     <a class="nav-link" href="/">

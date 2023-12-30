@@ -4,18 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:superadmin']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'role:superadmin']);
+    // }
     public function index()
     {
         $users = User::all();
         return view('users.index', compact('users'));
+    }
+    public function dashboard()
+    {
+        $user = Auth::user();
+        return view('users.dashboard', compact('user'));
     }
 
     public function updateRole(Request $request, User $user)
@@ -63,6 +69,22 @@ class UserController extends Controller
             default:
                 return 0;
         }
+    }
+
+
+    public function show($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+        return view('users.details', compact('user'));
+    }
+
+
+    public function showProfile($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+        $sitemap = $user->sitemap;
+
+        return view('users.profile', compact('user', 'sitemap'));
     }
 
 
