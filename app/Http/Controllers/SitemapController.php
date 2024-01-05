@@ -51,7 +51,7 @@ class SitemapController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $request->file('image')->getClientOriginalExtension();
             $img = $manager->read($request->file('image'));
             $img = $img->resize(370, 246);
-            $img->toJpeg(80)->save(base_path('public/All_Images/sitemap/' . $name_gen));
+            $img->save(base_path('public/All_Images/sitemap/' . $name_gen));
             $sitemapData['image'] = 'All_Images/sitemap/' . $name_gen;
         }
 

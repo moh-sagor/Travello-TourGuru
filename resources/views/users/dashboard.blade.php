@@ -108,8 +108,13 @@
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-12">
                                 <h5 class="d-flex align-items-center mb-0">
-                                    <div class="countdown" data-duration="{{ $user->duration }}"
-                                        id="countdown_{{ $user->id }}"></div>
+                                    @if ($user->duration === '0 month')
+                                        EXPIRED
+                                    @else
+                                        <div class="countdown" data-duration="{{ $user->duration }}"
+                                            id="countdown_{{ $user->id }}"></div>
+                                    @endif
+
                                 </h5>
                             </div>
                             <div class="col-12">
