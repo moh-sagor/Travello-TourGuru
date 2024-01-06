@@ -17,6 +17,11 @@ class Sitemap extends Model
         'twitter',
         'linkedin',
         'user_id',
+        'sitename',
+        'about_1',
+        'about_2',
+        'banner_1',
+        'banner_2',
     ];
 
     public function user()

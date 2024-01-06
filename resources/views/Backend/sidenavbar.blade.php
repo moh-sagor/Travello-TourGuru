@@ -2,9 +2,15 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <a class="nav-link" href="/">
+                @if (Auth::user()->role == 'superadmin' || Auth::user()->role == 'admin')
+                    <a class="nav-link" href="{{ route('user.profile', Auth::user()->username) }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Home
+                    </a>
+                @endif
+                <a class="nav-link" href="{{ route('users.dashboard') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Home
+                    Dashboard
                 </a>
                 @if (Auth::user()->role == 'superadmin')
                     <a class="nav-link" href="{{ route('users.index') }}">
@@ -13,23 +19,18 @@
                     </a>
                     <a class="nav-link" href="{{ route('sitemaps.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Site Maps
+                        Site Info
                     </a>
                 @elseif (Auth::user()->role == 'admin')
-                    <a class="nav-link" href="/">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Admin
-                    </a>
-
                     <a class="nav-link" href="{{ route('sitemaps.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Site Maps
+                        Site Info
                     </a>
                 @else
-                    <a class="nav-link" href="/">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        User
-                    </a>
+                    <p class="nav-link">
+                        Not Allow to Build Website because of user. must need to buy a package to build your website and
+                        upgrade you as admin.
+                    </p>
                 @endif
 
             </div>

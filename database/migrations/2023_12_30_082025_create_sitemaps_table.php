@@ -13,6 +13,11 @@ return new class extends Migration {
         Schema::create('sitemaps', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('sitename')->nullable();
+            $table->string('banner_1')->nullable();
+            $table->string('banner_2')->nullable();
+            $table->string('about_1')->nullable();
+            $table->string('about_2')->nullable();
             $table->string('contact')->nullable();
             $table->string('address')->nullable();
             $table->string('facebook')->nullable();

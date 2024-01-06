@@ -2,18 +2,18 @@
 @include('Frontend_client.meta_dynamic')
 @section('main')
     <div class="slider-area fix">
-        <div class="single-slider">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12">
-                        <div class="hero__caption text-center">
-                            <h1 data-animation="fadeInUp" data-delay="0.1s">Lifelong memories just a <dd>few
-                                    seconds away</dd>
-                            </h1>
-                            <p data-animation="fadeInUp" data-delay="0.6s">Let’s start your journey with us,
-                                your dream will come true</p>
-                            <a href="index.html#" class="btn slider-btn " data-animation="bounceIn" data-delay="1s">Explore
-                                Destinations</a>
+        <div class="slider-active">
+            <div class="single-slider">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12">
+                            <div class="hero__caption text-center">
+                                <h1 data-animation="fadeInUp" data-delay="0.1s">{{ optional($sitemap)->banner_1 }}
+                                </h1>
+                                <p data-animation="fadeInUp" data-delay="0.6s">{{ optional($sitemap)->banner_2 }}</p>
+                                <a href="index.html#" class="btn slider-btn " data-animation="bounceIn"
+                                    data-delay="1s">Explore Destinations</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,6 @@
             </div>
         </div>
     </div>
-
 
     <section class="services-section section-padding">
         <div class="container">
@@ -119,13 +118,10 @@
 
                         <div class="section-tittle">
                             <span>About Us</span>
-                            <h2>Get ready for real time adventure</h2>
+                            <h2>{{ optional($sitemap)->about_1 }}</h2>
                         </div>
                         <div class="support-caption">
-                            <p class="mb-50">Let’s start your journey with us, your dream will come true. Lorem
-                                ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                veniam quis nostrud exercitation.</p>
+                            <p class="mb-50">{{ optional($sitemap)->about_2 }}</p>
                             <a href="about.html" class="btn about-btn">Book Your Destination</a>
                         </div>
                     </div>
@@ -247,7 +243,7 @@
         </div>
     </section>
 
-    <div class="instagram-area fix">
+    {{-- <div class="instagram-area fix">
         <div class="container-fluid p-0">
             <div class="row">
                 <div class="col-xl-12">
@@ -280,5 +276,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

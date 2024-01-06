@@ -5,7 +5,7 @@
 
                 <div class="col-xl-2 col-lg-2">
                     <div class="logo">
-                        <a href="index.html"><img src="{{ asset('Frontend/assets/img/logo/logo.png') }}" alt></a>
+                        <a href="index.html"><img src="{{ asset('Frontend/assets/img/logo/logo.png') }}"></a>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-10">
@@ -14,23 +14,15 @@
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="event.html">Events</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="index.html#">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="events_details.html">Events Details</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="elements.html">Element</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="{{ url('/') }}">Home</a></li>
+                                    <li><a href="">Events</a></li>
+                                    <li><a href="">About</a></li>
+                                    <li><a href="">Contact</a></li>
 
                                     @auth
                                         <li><a href="/dashboard">Dashboard</li>
                                     @else
-                                        <li><a href="{{ route('login') }}">Login</a></li>
+                                        <li><a href="{{ route('login') }}" target="_blank">Login</a></li>
                                     @endauth
 
 

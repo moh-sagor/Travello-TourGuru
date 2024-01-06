@@ -21,7 +21,8 @@ class UserController extends Controller
     public function dashboard()
     {
         $user = Auth::user();
-        return view('users.dashboard', compact('user'));
+        $users = User::all();
+        return view('users.dashboard', compact('user', 'users'));
     }
 
     public function updateRole(Request $request, User $user)

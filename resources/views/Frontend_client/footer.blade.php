@@ -8,7 +8,7 @@
 
                             <div class="footer-logo mb-35">
                                 <a href="{{ route('user.profile', $user->username) }}"><img height="120" width="300"
-                                        src="{{ asset($sitemap->image) }}" alt></a>
+                                        src="{{ asset(optional($sitemap)->image) }}" alt></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
@@ -17,11 +17,11 @@
                                 </div>
 
                                 <div class="footer-social">
-                                    <a href="{{ $sitemap->twitter }}" target="_blank"><i
+                                    <a href="{{ optional($sitemap)->twitter }}" target="_blank"><i
                                             class="fab fa-twitter-square"></i></a>
-                                    <a href="{{ $sitemap->facebook }}" target="_blank"><i
+                                    <a href="{{ optional($sitemap)->facebook }}" target="_blank"><i
                                             class="fab fa-facebook-square"></i></a>
-                                    <a href="{{ $sitemap->linkedin }}" target="_blank"><i
+                                    <a href="{{ optional($sitemap)->linkedin }}" target="_blank"><i
                                             class="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
@@ -59,11 +59,11 @@
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle mb-20">
                             <h4>Contact Us</h4>
-                            <p>{{ $sitemap->address }}</p>
+                            <p>{{ optional($sitemap)->address }}</p>
                         </div>
                         <ul class="mb-20">
                             <li class="number">
-                                <p style="color:yellow;">{{ $sitemap->contact }}</p>
+                                <p style="color:yellow;">{{ optional($sitemap)->contact }}</p>
                             </li>
                         </ul>
                     </div>
@@ -82,7 +82,8 @@
                                 <script>
                                     document.write(new Date().getFullYear());
                                 </script> All rights reserved | <span
-                                    style="color:rgb(255, 0, 195)">{{ auth()->user()->username }}</span> with <a
+                                    style="color:rgb(255, 0, 195)"></span> <span
+                                    style="color:aqua;">{{ optional($sitemap)->sitename }}</span> with <a
                                     style="color: red;" href="{{ url('/') }}"> TravelGuru
                                 </a><i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a
                                     href="https://www.facebook.com/findmesagor" target="_blank"
