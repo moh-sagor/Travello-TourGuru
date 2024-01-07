@@ -19,16 +19,17 @@
                     </a>
                     <a class="nav-link" href="{{ route('sitemaps.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Site Info
+                        Customize Site
                     </a>
                 @elseif (Auth::user()->role == 'admin')
                     <a class="nav-link" href="{{ route('sitemaps.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Site Info
+                        Customize Site
                     </a>
                 @else
                     <p class="nav-link">
-                        Not Allow to Build Website because of user. must need to buy a package to build your website and
+                        Not Allow to Build Website because of user. You must need to buy a package to build your website
+                        and
                         upgrade you as admin.
                     </p>
                 @endif

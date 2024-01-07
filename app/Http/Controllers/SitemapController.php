@@ -28,10 +28,10 @@ class SitemapController extends Controller
             'facebook' => 'nullable|string',
             'twitter' => 'nullable|string',
             'linkedin' => 'nullable|string',
-            'about_1' => 'nullable|string',
-            'about_2' => 'nullable|string',
-            'banner_1' => 'nullable|string',
-            'banner_2' => 'nullable|string',
+            'about_1' => 'nullable|text',
+            'about_2' => 'nullable|text',
+            'banner_1' => 'nullable|text',
+            'banner_2' => 'nullable|text',
         ]);
         $user = Auth::user();
         $sitemapData = [
