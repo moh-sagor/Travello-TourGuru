@@ -5,7 +5,7 @@
 
                 <div class="col-xl-2 col-lg-2">
                     <div class="logo">
-                        <a href="index.html"><img src="{{ asset('Frontend/assets/img/logo/logo.png') }}"></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('Frontend/assets/img/logo/logo.png') }}"></a>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-10">
@@ -15,10 +15,7 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="{{ url('/') }}">Home</a></li>
-                                    <li><a href="">Events</a></li>
-                                    <li><a href="">About</a></li>
-                                    <li><a href="">Contact</a></li>
-
+                                    <li><a href="{{ route('packages.create') }}">Buy Package</a></li>
                                     @auth
                                         <li><a href="/dashboard">Dashboard</li>
                                     @else
@@ -27,8 +24,8 @@
 
 
                                     <li class="button-header">
-                                        <a href="" class="header-btn"> <i class="fas fa-phone-alt"></i> +10
-                                            (67) 678 2567</a>
+                                        <a href="tel:+8801742214639" class="header-btn"> <i
+                                                class="fas fa-phone-alt"></i> +8801742214639</a>
                                     </li>
                                 </ul>
                             </nav>

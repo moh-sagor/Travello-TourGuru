@@ -3,12 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PackageController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/details/{username}', [UserController::class, 'showProfile'])->name('users.details');
 Route::get('/site/{username}', [UserController::class, 'showProfile'])->name('user.profile');
+Route::get('/packages/create', [PackageController::class, 'create'])->name('packages.create');
 
 
 
@@ -22,6 +24,11 @@ Route::middleware('auth')->group(function () {
     // sitemaps 
     Route::get('/sitemaps', [SitemapController::class, 'index'])->name('sitemaps.index');
     Route::post('/sitemaps/store', [SitemapController::class, 'store'])->name('sitemaps.store');
+
+    // packages 
+    Route::get('/packages', [PackageController::class, 'index'])->name('packages.index');
+    Route::post('/packages', [PackageController::class, 'store'])->name('packages.store');
+    Route::post('/mark-as-read/{package}', [PackageController::class, 'markAsRead']);
 
 
 });

@@ -12,21 +12,31 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
+                {{-- superadmin  --}}
                 @if (Auth::user()->role == 'superadmin')
                     <a class="nav-link" href="{{ route('users.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Manage User
                     </a>
+                    <a class="nav-link" href="{{ route('packages.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Package buying info
+                    </a>
                     <a class="nav-link" href="{{ route('sitemaps.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Customize Site
                     </a>
+
+
+
+                    {{-- admin  --}}
                 @elseif (Auth::user()->role == 'admin')
                     <a class="nav-link" href="{{ route('sitemaps.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Customize Site
                     </a>
                 @else
+                    {{-- user  --}}
                     <p class="nav-link">
                         Not Allow to Build Website because of user. You must need to buy a package to build your website
                         and

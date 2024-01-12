@@ -2,7 +2,7 @@
     <div class="footer-area footer-padding">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+                <div class="col-xl-8 col-lg-4 col-md-6 col-sm-8">
                     <div class="single-footer-caption mb-50">
                         <div class="single-footer-caption mb-30">
 
@@ -12,58 +12,37 @@
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>Land behold it created good saw after she'd Our set living. Signs midst
-                                        dominion creepeth morning laboris nisi ufsit aliquip.</p>
+                                    <p>
+                                        Discover the world with Travelmates, Bangladesh's leading travel arrangement
+                                        company. We specialize in crafting seamless and unforgettable journeys tailored
+                                        to your desires. Experience excellence, innovation, and personalized service
+                                        with Travelmates – your trusted partner in travel..
+                                    </p>
                                 </div>
 
                                 <div class="footer-social">
-                                    <a href="index.html#"><i class="fab fa-twitter-square"></i></a>
-                                    <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-square"></i></a>
-                                    <a href="index.html#"><i class="fab fa-linkedin"></i></a>
-                                    <a href="index.html#"><i class="fab fa-pinterest-square"></i></a>
+                                    {{-- <a href="index.html#"><i class="fab fa-twitter-square"></i></a> --}}
+                                    <a href="https://www.facebook.com/profile.php?id=100068727167465&mibextid=2JQ9oc"
+                                        target="_blank"><i class="fab fa-facebook-square"></i></a>
+                                    <a href="https://www.linkedin.com/in/travel-mates-bd%F0%9F%87%A7%F0%9F%87%A9-a302341a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    {{-- <a href="index.html#"><i class="fab fa-pinterest-square"></i></a> --}}
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>Navigation</h4>
-                            <ul>
-                                <li><a href="index.html#">Home</a></li>
-                                <li><a href="index.html#">About</a></li>
-                                <li><a href="index.html#">Services</a></li>
-                                <li><a href="index.html#">Blog</a></li>
-                                <li><a href="index.html#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-md-8 col-sm-6">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>Services</h4>
-                            <ul>
-                                <li><a href="index.html#">Blackforest</a></li>
-                                <li><a href="index.html#">Bodhubon</a></li>
-                                <li><a href="index.html#">Rongdhonu</a></li>
-                                <li><a href="index.html#">Meghrong</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-8">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle mb-20">
-                            <h4>Contact Us</h4>
-                            <p>76/A, Green Lane, Dhanmondi, NYC</p>
-                            <p><a href="../../cdn-cgi/l/email-protection" class="__cf_email__"
-                                    data-cfemail="680c0d0507050901045051280f05090104460b0705">[email&#160;protected]</a>
+                            <h4>Contact Us at Office</h4>
+                            <p>Sibu Market - Fatulla Rd, Narayanganj, Bangladesh</p>
+                            <p>
+                                <a href="https://maps.app.goo.gl/aTerDw7iM1frcWMt9" target="_blank">Maps</a>
                             </p>
                         </div>
                         <ul class="mb-20">
-                            <li class="number"><a href="index.html#">+10 (78) 738-9083</a></li>
+                            <li class="number"><a href="tel:+8801742214639">+8801742214639</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,12 +57,10 @@
                     <div class="col-xl-12 ">
                         <div class="footer-copy-right text-center">
                             <p>Copyright &copy;
-                                <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i
-                                    class="fa fa-heart color-danger" aria-hidden="true"></i> by <a
-                                    href="https://colorlib.com" target="_blank" rel="nofollow noopener">Colorlib</a>
+                                </script> All rights reserved | <a
+                                    href="https://www.facebook.com/findmesagor/" target="_blank">Travelmatesbd.com</a>
                             </p>
                         </div>
                     </div>

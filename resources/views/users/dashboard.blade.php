@@ -145,8 +145,9 @@
                                             <i class="fas fa-share"></i> Share
                                         </button>
                                     @else
-                                        <span class="btn btn-sm btn-danger">To get your Website link must subscribe a
-                                            package. </span>
+                                        <a href="{{ route('packages.create') }}" class="btn btn-sm btn-danger">To get your
+                                            Website link must subscribe a
+                                            package. </a>
                                     @endif
                                 </h5>
                             </div>
