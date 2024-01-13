@@ -204,48 +204,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-                {{-- <div class="col-xl-3 col-lg-3">
-                    <div class="card l-bg-orange-dark">
-                        <div class="card-statistic-3 p-4">
-                            <div class="card-icon card-icon-large"></div>
-                            <div class="mb-4">
-                                <h5 class="card-title mb-0">Users Count</h5>
-                            </div>
-                            <div class="row align-items-center mb-2 d-flex">
-                                <div class="col-8">
-                                    <h2 class="d-flex align-items-center mb-0">
-                                        {{ $superAdminCount + $adminCount + $userCount }}
-                                    </h2>
-                                </div>
-                                <div class="col-4">
-                                    <p>S.A :</p>
-                                    <h3 class="d-flex align-items-center mb-0">
-                                        {{ $superAdminCount }}
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <small>Admins : </small><span class="font-weight-bold">{{ $adminCount }}</span>
-                                </div>
-                                <div class="col">
-                                    <small>Users : </small><span class="font-weight-bold">{{ $userCount }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             @endif
         </div>
     </div>

@@ -1,6 +1,6 @@
 @section('meta_title')
-    {{ $sitemap->sitename }}
+    {{ optional($sitemap)->sitename }}
 @endsection
 @section('meta_description')
-    {{ $sitemap->about_2 }}
+    {{ optional($sitemap)->about_2 }}
 @endsection

@@ -35,6 +35,10 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         All Events
                     </a>
+                    <a class="nav-link" href="{{ route('bookings.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Bookings
+                    </a>
 
 
 
@@ -52,8 +56,19 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         All Events
                     </a>
+                    <a class="nav-link" href="{{ route('bookings.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Bookings
+                    </a>
                 @else
                     {{-- user  --}}
+                    <p class="nav-link">
+                        <a class="btn btn-sm btn-primary" href="{{ url('/') }}">Home</a>
+                    </p>
+                    <p class="nav-link">
+                        <a class="btn btn-sm btn-primary" href="{{ route('packages.create') }}">Buy package</a>
+                    </p>
+
                     <p class="nav-link">
                         Not Allow to Build Website because of user. You must need to buy a package to build your website
                         and

@@ -25,7 +25,7 @@
                                 <span class="price">&#2547; {{ (int) $event->taka }}</span>
                             </div>
                             <div class="details-btn text-center mt-40">
-                                <a href="" class="btn about-btn">Book Your Seat</a>
+                                <a href="{{ route('bookings.create') }}" class="btn about-btn">Book Your Seat</a>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="details-btn text-center mt-40">
-                        <a href="" class="btn about-btn">Book Your Seat</a>
+                        <a href="{{ route('bookings.create') }}" class="btn about-btn">Book Your Seat</a>
                     </div>
                 </div>
             </div>

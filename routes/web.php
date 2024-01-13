@@ -5,6 +5,7 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\BookingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,6 +14,8 @@ Route::get('/details/{username}', [UserController::class, 'showProfile'])->name(
 Route::get('/site/{username}', [UserController::class, 'showProfile'])->name('user.profile');
 Route::get('/packages/create', [PackageController::class, 'create'])->name('packages.create');
 Route::get('/show-event/{id}', [EventController::class, 'show'])->name('events.show');
+Route::get('/booking/event', [BookingController::class, 'create'])->name('bookings.create');
+
 
 
 
@@ -42,6 +45,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('events.edit');
     Route::post('/events/{id}/update', [EventController::class, 'update'])->name('events.update');
     Route::post('/events/{id}/delete', [EventController::class, 'destroy'])->name('events.destroy');
+
+    // booking 
+    Route::get('/booking/all', [BookingController::class, 'index'])->name('bookings.index');
+    Route::post('/booking/store', [BookingController::class, 'store'])->name('bookings.store');
 });
 
 require __DIR__ . '/auth.php';

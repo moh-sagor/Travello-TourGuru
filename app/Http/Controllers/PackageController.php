@@ -28,6 +28,7 @@ class PackageController extends Controller
             'phone_number' => 'required|string',
             'trxID' => 'required|string',
             'payment_type' => 'required|string',
+            'status' => 'in:read,unread',
         ]);
 
         // Get the authenticated user
@@ -41,7 +42,7 @@ class PackageController extends Controller
             'phone_number' => $request->phone_number,
             'trxID' => $request->trxID,
             'payment_type' => $request->payment_type,
-            'status' => $request->status,
+            'status' => $request->status ?? 'unread',
         ]);
 
         return response()->json(['success' => true, 'package' => $package]);

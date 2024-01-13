@@ -10,16 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('package_name');
-            $table->decimal('amount', 10, 2);
+            $table->decimal('taka', 10, 2);
+            $table->string('payment_method');
             $table->string('phone_number');
             $table->string('trxID');
-            $table->string('payment_type');
+            $table->integer('person');
             $table->unsignedBigInteger('user_id');
-            $table->enum('status', ['unread', 'read'])->default('unread');
+            $table->enum('status', ['pending', 'accepted'])->default('pending');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('bookings');
     }
 };
