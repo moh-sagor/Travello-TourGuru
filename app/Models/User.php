@@ -66,4 +66,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Sitemap::class);
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

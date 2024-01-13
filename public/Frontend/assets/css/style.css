@@ -1019,28 +1019,8 @@ li {
     }
 }
 
-.slider-bg2 {
-    background-image: url(../img/hero/h1_hero2.jpg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover
-}
 
-.slider-bg2.slider-bg3 {
-    background-image: url(../img/hero/h1_hero3.jpg)
-}
 
-.slider-bg2.slider-bg4 {
-    background-image: url(../img/hero/h1_hero4.jpg)
-}
-
-.slider-bg2.slider-bg5 {
-    background-image: url(../img/hero/h1_hero5.jpg)
-}
-
-.slider-bg2.slider-bg6 {
-    background-image: url(../img/hero/h1_hero6.jpg)
-}
 
 .slider-area {
     margin-top: -1px;
@@ -1207,7 +1187,7 @@ li {
 .slider-area .hero__caption.hero__caption3::before {
     position: absolute;
     content: "";
-    background: rgba(0, 9, 94, 0.2);
+    background: rgba(0, 0, 0, 0.854);
     top: 0;
     left: 0;
     right: 0;

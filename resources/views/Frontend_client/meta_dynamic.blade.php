@@ -1,6 +1,6 @@
 @section('meta_title')
-    Travel Agency in Bangladesh. managed by sagor.
+    {{ $event->name }} | {{ $event->user->sitemap->sitename }}
 @endsection
 @section('meta_description')
-    We are first Travel agency in bangladesh.managed by sagor.
+    {{ Str::limit($event->description, 150) }}
 @endsection

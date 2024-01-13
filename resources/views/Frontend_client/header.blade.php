@@ -6,7 +6,7 @@
                 <div class="col-xl-2 col-lg-2">
                     <div class="logo">
                         <a href="{{ route('user.profile', $user->username) }}"><img
-                                src="{{ asset(optional($sitemap)->image) }}" height="57" width="165"></a>
+                                src="{{ asset(optional($user->sitemap)->image) }}" height="57" width="165"></a>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-10">

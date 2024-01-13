@@ -3,20 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth', 'role:superadmin']);
-    // }
     public function index()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users', ));
     }
     public function dashboard()
     {
@@ -84,8 +80,8 @@ class UserController extends Controller
     {
         $user = User::where('username', $username)->firstOrFail();
         $sitemap = $user->sitemap;
-
-        return view('users.profile', compact('user', 'sitemap'));
+        $events = $user->events()->latest('created_at')->take(4)->get();
+        return view('users.profile', compact('user', 'sitemap', 'events'));
     }
 
 

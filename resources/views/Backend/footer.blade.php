@@ -8,9 +8,7 @@
                 All rights reserved
             </div>
             <div>
-                <span style="color:rgb(255, 0, 195)">{{ auth()->user()->username }}</span> with <a style="color: red;"
-                    href="{{ url('/') }}"> TravelGuru
-                </a><i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a
+                <span style="color:rgb(255, 0, 195)">{{ auth()->user()->username }}</span> by <a
                     href="https://www.facebook.com/findmesagor" target="_blank" rel="nofollow noopener">Sagor</a>
             </div>
         </div>

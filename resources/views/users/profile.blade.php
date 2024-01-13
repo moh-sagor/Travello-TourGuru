@@ -1,5 +1,6 @@
 @extends('Frontend_client.main')
-@include('Frontend_client.meta_dynamic')
+@include('Frontend_client.name_meta_dynamic')
+@include('Frontend_client.favicon')
 @section('main')
     <div class="slider-area fix">
         <div class="slider-active">
@@ -39,67 +40,40 @@
 
                     <div class="section-tittle text-center mb-45 ">
                         <span>Check our best promotional tour</span>
-                        <h2>Upcoming Events </h2>
+                        <h2>Ongoing & Upcoming Events </h2>
                     </div>
                 </div>
             </div>
             <div class="services-active">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="{{ asset('Frontend/assets/img/gallery/services1.jpg') }}" alt>
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3><a href="events_details.html"> Mega Turkey </a></h3>
-                                <span class="price">$1200</span>
+                @foreach ($events as $event)
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="single-cat mb-30"
+                            style="border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column;">
+                            <div class="cat-img" style="flex: 1 0 auto;">
+                                <img src="{{ asset($event->image) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                                    alt="Event Image">
                             </div>
-                            <p><a href="index.html#">12 Jan - 18 Jan</a>5 Days</p>
+                            <div class="cat-cap">
+                                <div class="pricing d-flex justify-content-between">
+                                    <h4>{{ $event->name }}</h4>
+                                    <span class="price"> <span>&#2547;</span>{{ (int) $event->taka }}</span>
+                                </div>
+                                <div class="row" style="justify-content: space-between;">
+                                    <div class="col-md-6 col-lg-6 col-6">
+                                        <p>{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</p>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-6 justify-content-end ">
+                                        <p>{{ $event->day }}</p>
+                                    </div>
+                                </div>
+                                <a style="margin: 20px 20px auto auto;" class="btn btn-sm text-center"
+                                    href="{{ route('events.show', $event->id) }}">
+                                    Tour Details </a>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="{{ asset('Frontend/assets/img/gallery/services2.jpg') }}" alt>
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3> <a href="events_details.html"> Finlande </a></h3>
-                                <span class="price">$1200</span>
-                            </div>
-                            <p><a href="index.html#">12 Jan - 18 Jan</a>5 Days</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="{{ asset('Frontend/assets/img/gallery/services3.jpg') }}" alt>
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3> <a href="events_details.html"> Spitzberg </a></h3>
-                                <span class="price">$1200</span>
-                            </div>
-                            <p><a href="index.html#">12 Jan - 18 Jan</a>5 Days</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="{{ asset('Frontend/assets/img/gallery/services2.jpg') }}" alt>
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3> <a href="events_details.html"> Mega Turkey </a></h3>
-                                <span class="price">$1200</span>
-                            </div>
-                            <p><a href="index.html#">12 Jan - 18 Jan</a>5 Days</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -159,9 +133,7 @@
                                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                         data-parent="#accordionExample">
                                         <div class="card-body">
-                                            The automated process starts as soon as
-                                            your clothes go into the machine. Duis cursus, mi
-                                            quis viverra ornare.
+                                            Automated Ticketing system is intregated.
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +215,7 @@
         </div>
     </section>
 
-    {{-- <div class="instagram-area fix">
+    <div class="instagram-area fix">
         <div class="container-fluid p-0">
             <div class="row">
                 <div class="col-xl-12">
@@ -276,5 +248,5 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection

@@ -27,6 +27,15 @@
                         Customize Site
                     </a>
 
+                    <a class="nav-link" href="{{ route('events.create') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Create Events
+                    </a>
+                    <a class="nav-link" href="{{ route('events.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        All Events
+                    </a>
+
 
 
                     {{-- admin  --}}
@@ -34,6 +43,14 @@
                     <a class="nav-link" href="{{ route('sitemaps.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Customize Site
+                    </a>
+                    <a class="nav-link" href="{{ route('events.create') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Create Events
+                    </a>
+                    <a class="nav-link" href="{{ route('events.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        All Events
                     </a>
                 @else
                     {{-- user  --}}

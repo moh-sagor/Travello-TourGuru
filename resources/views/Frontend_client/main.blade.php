@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="title" content="@yield('meta_title')">
     <meta name="description" content="@yield('meta_description')">
+    <link rel="shortcut icon" type="image/x-icon" href="@yield('favicon')">
     <title> @yield('meta_title')</title>
     {{-- css link  --}}
     @include('Frontend_client.link')
