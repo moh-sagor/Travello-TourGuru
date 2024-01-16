@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -50,12 +51,18 @@ class BookingController extends Controller
         return response()->json(['success' => true, 'booking' => $booking]);
     }
 
-    public function markAsRead(Booking $booking)
+    public function updateStatus(Request $request, $id)
     {
-        $booking->update(['status' => 'accepted']);
+        $booking = Booking::findOrFail($id);
 
-        return response()->json(['success' => true]);
+        // Toggle the status between 'pending' and 'accepted'
+        $booking->status = ($booking->status == 'pending') ? 'accepted' : 'pending';
+        $booking->save();
+
+        return redirect()->route('bookings.index')->with('success', 'Status updated successfully.');
     }
+
+
 
 
 }

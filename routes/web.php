@@ -49,6 +49,9 @@ Route::middleware('auth')->group(function () {
     // booking 
     Route::get('/booking/all', [BookingController::class, 'index'])->name('bookings.index');
     Route::post('/booking/store', [BookingController::class, 'store'])->name('bookings.store');
+    Route::patch('/bookings/update-status/{id}', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
+
+
 });
 
 require __DIR__ . '/auth.php';
